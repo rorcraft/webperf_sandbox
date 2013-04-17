@@ -46,4 +46,7 @@ Webperf::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  get 'javascript.js' => 'home#javascript'
+
+  root to: "home#index"
 end
