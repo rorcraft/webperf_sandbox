@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Webperf</title>
+<% content_for :head do %>
   <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "/javascript" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <% sleep 2 %>
-  Home
+  <%= javascript_include_tag "/javascript?time=3" %>
+<% end %>
 
-</body>
-</html>
+HOME
+
+Sleeping
+<% sleep 2 %>
+Awake
