@@ -1,8 +1,17 @@
 <!DOCTYPE html>
-<html>
+        <!--[if IE 8]> <html class="no-js ie8" lang="en-US" xml:lang="en-US" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns="http://www.w3.org/1999/xhtml"> <![endif]-->
+        <!--[if IE 9]> <html class="no-js ie9" lang="en-US" xml:lang="en-US" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns="http://www.w3.org/1999/xhtml"> <![endif]-->
+        <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js not-ie" lang="en-US" xml:lang="en-US" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns="http://www.w3.org/1999/xhtml"> <!--<![endif]-->
+
 <head>
   <title>Webperf</title>
-  <%= javascript_include_tag "/javascript?time=1", :defer => "defer" %>
+  <%= javascript_include_tag "/javascript?time=1", :async => "async" %>
+  <%= stylesheet_link_tag  "application" %>
+  <%= javascript_include_tag "/javascript?time=3", async: "async" %>
+  <script>
+  var img = new Image();
+  img.src = "http://d22r54gnmuhwmk.cloudfront.net/photos/7/hd/cn/cbhDCNhogyNPDlY-556x313-noPad.jpg";
+  </script>
   <%= yield :head %>
   <%= csrf_meta_tags %>
 </head>
