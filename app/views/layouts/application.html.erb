@@ -5,6 +5,13 @@
 
 <head>
   <title>Webperf</title>
+  <script>
+  console.log(Date() + ":preload main image");
+  var img = new Image();
+  img.src = "http://d22r54gnmuhwmk.cloudfront.net/photos/7/hd/cn/cbhDCNhogyNPDlY-556x313-noPad.jpg";
+  console.log(Date() + ":preload main image done");
+  </script>
+
   <%# javascript_include_tag "/javascript?time=1", :async => "async" %>
   <%# javascript_include_tag "/javascript?time=3", defer: "defer" %>
   <%= javascript_include_tag "https://raw.github.com/SlexAxton/yepnope.js/master/yepnope.1.5.4-min.js" %>
@@ -19,10 +26,6 @@
   }
   </style>
   <script>
-  console.log(Date() + ":preload main image");
-  var img = new Image();
-  img.src = "http://d22r54gnmuhwmk.cloudfront.net/photos/7/hd/cn/cbhDCNhogyNPDlY-556x313-noPad.jpg";
-  console.log(Date() + ":preload main image done");
   yepnope(
    {
      load: "/javascript.js?time=3",
