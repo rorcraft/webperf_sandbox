@@ -5,12 +5,32 @@
 
 <head>
   <title>Webperf</title>
-  <%= javascript_include_tag "/javascript?time=1", :async => "async" %>
+  <%# javascript_include_tag "/javascript?time=1", :async => "async" %>
+  <%# javascript_include_tag "/javascript?time=3", defer: "defer" %>
+  <%= javascript_include_tag "https://raw.github.com/SlexAxton/yepnope.js/master/yepnope.1.5.4-min.js" %>
   <%= stylesheet_link_tag  "application" %>
-  <%= javascript_include_tag "/javascript?time=3", async: "async" %>
+  <style>
+  @font-face {
+  font-family: "Change Din";
+  src: url("//change-fonts.s3.amazonaws.com/pfdintextpro-regular-webfont.eot");
+  src: url("//change-fonts.s3.amazonaws.com/pfdintextpro-regular-webfont.eot?#iefix") format("embedded-opentype"), url("//change-fonts.s3.amazonaws.com/pfdintextpro-regular-webfont.woff") format("woff"), url("//change-fonts.s3.amazonaws.com/pfdintextpro-regular-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  }
+  </style>
   <script>
+  console.log(Date() + ":preload main image");
   var img = new Image();
   img.src = "http://d22r54gnmuhwmk.cloudfront.net/photos/7/hd/cn/cbhDCNhogyNPDlY-556x313-noPad.jpg";
+  console.log(Date() + ":preload main image done");
+  yepnope(
+   {
+     load: "/javascript.js?time=3",
+     complete: function() {
+        console.log(Date() + ":finished loading javascript?time=3")
+     }
+   }
+  )
   </script>
   <%= yield :head %>
   <%= csrf_meta_tags %>
